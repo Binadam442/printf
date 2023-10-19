@@ -11,11 +11,11 @@ int string(va_list p)
 	char *s;
 
 	s = va_arg(p, char *);
-	if (s == (""))
+	if (s[0] == '\0')
 		return (-1);
 	if (s == NULL)
 	{
-		s = "(nill)";
+		s = "(null)";
 		write(1, "(nill)", 6);
 		return (6);
 	}

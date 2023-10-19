@@ -8,19 +8,14 @@
 int _printf(const char *format, ...)
 {
 		Specifiers Specify[] = {
-		{"%c", characters}, {"%%", percent}, {"%s", string},
-		{"%d", case_d}, {"%i", case_i},
+		{"%c", characters}, {"%%", percent}, {"%s", string}, {"%d", case_d},
+		{"%i", case_i},
 		};
-	va_list p;
-	int chars;
-	size_t b;
-	int specifierFound;
-	/*checks if format is null*/
+	va_list p; int chars; size_t b; int specifierFound;
+
 	if (!format)
 		return (-1);
-	va_start(p, format);
-	chars = 0;
-
+	va_start(p, format), chars = 0;
 	while (*format != '\0')
 	{
 		specifierFound = 0;
@@ -36,6 +31,15 @@ int _printf(const char *format, ...)
 
 		}
 		if (!specifierFound)
+		{
+			if (*format == '\\')
+			{
+				print_escaped_string(format);
+				while (*format && *format != ' ')
+					format++;
+			}
+		}
+		else
 		{
 		_putchar(*format++);
 		chars++;
