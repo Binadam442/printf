@@ -11,7 +11,7 @@ int string(va_list p)
 	char *s;
 
 	s = va_arg(p, char *);
-	if (s[0] == '\0')
+	if (s == (""))
 		return (-1);
 	if (s == NULL)
 	{
