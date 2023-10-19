@@ -32,8 +32,11 @@ int _printf(const char *format, ...)
 			}
 
 		}
+		if (!specifierFound)
+		{
 		_putchar(*format++);
 		chars++;
+		}
 	}
 	va_end(p);
 	return (chars);
