@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 		{"%i", case_i},
 		};
 	va_list p;
-	int chars, specifierFound;
+	int chars, specifierFound = 0;
 	size_t b;
 
 	if (!format)
@@ -27,24 +27,14 @@ int _printf(const char *format, ...)
 			{
 				chars = chars + Specify[b].functionptr(p);
 				format += 2;
-				specifierFound = 1;
+				specifierFound += 1;
 				break;
 			}
 
 		}
-		if (!specifierFound)
-		{
-			if (*format == '\\')
-			{
-				chars += print_escaped_string(format);
-				format += 2;
-				continue;
-			}
-		}
 		_putchar(*format++);
 		chars++;
 	}
-	
 	va_end(p);
 	return (chars);
 }
