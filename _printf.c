@@ -11,7 +11,9 @@ int _printf(const char *format, ...)
 		{"%c", characters}, {"%%", percent}, {"%s", string}, {"%d", case_d},
 		{"%i", case_i},
 		};
-	va_list p; int chars; size_t b; int specifierFound;
+	va_list p;
+	int chars, specifierFound;
+	size_t b;
 
 	if (!format)
 		return (-1);
@@ -34,17 +36,15 @@ int _printf(const char *format, ...)
 		{
 			if (*format == '\\')
 			{
-				print_escaped_string(format);
-				while (*format && *format != ' ')
-					format++;
+				chars += print_escaped_string(format);
+				format += 2;
+				continue;
 			}
 		}
-		else
-		{
 		_putchar(*format++);
 		chars++;
-		}
 	}
+	
 	va_end(p);
 	return (chars);
 }
