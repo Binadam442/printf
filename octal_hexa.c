@@ -65,20 +65,22 @@ int hexaupper(va_list p)
 		total++;
 	}
 	total++;
-	hexa = malloc(sizeof(int) * total)
+	hexa = malloc(sizeof(int) * total);
 	if (hexa == NULL)
 	{
 		return (-1);
 		a = 0;
 	}
 	if (d == 0)
-	{
-		hexa[a] = 0;
+
+	}	
+		  hexa[a] = 0;
 		a++;
 	}
 	else
 	{
-	while (a < total)
+	
+		while (a < total);
 	}
 	free(hexa);
 	return (total);
