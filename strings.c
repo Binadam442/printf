@@ -15,7 +15,7 @@ int string(va_list p)
 		return (-1);
 	if (s == NULL)
 	{
-		s = "(nill)";
+		s = "(null)";
 		write(1, "(nill)", 6);
 		return (6);
 	}

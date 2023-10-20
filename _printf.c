@@ -8,20 +8,22 @@
 int _printf(const char *format, ...)
 {
 		Specifiers Specify[] = {
+<<<<<<< HEAD
 		{"%c", characters}, {"%%", percent}, {"%s", string},
 		{"%d", case_d}, {"%i", case_i}, {"%b", binary}, {"%u", case_u},
 		{"%0", base_eight}, {"%x", hexalower}, {"%X", hexaupper},
+=======
+		{"%c", characters}, {"%%", percent}, {"%s", string}, {"%d", case_d},
+		{"%i", case_i}, {"%b", binary},
+>>>>>>> fa99199cadb0ec59de783d0c28756b98c455402e
 		};
 	va_list p;
-	int chars;
+	int chars, specifierFound = 0;
 	size_t b;
-	int specifierFound;
-	/*checks if format is null*/
+
 	if (!format)
 		return (-1);
-	va_start(p, format);
-	chars = 0;
-
+	va_start(p, format), chars = 0;
 	while (*format != '\0')
 	{
 		specifierFound = 0;
@@ -31,7 +33,7 @@ int _printf(const char *format, ...)
 			{
 				chars = chars + Specify[b].functionptr(p);
 				format += 2;
-				specifierFound = 1;
+				specifierFound += 1;
 				break;
 			}
 
