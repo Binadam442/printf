@@ -8,9 +8,9 @@
 int _printf(const char *format, ...)
 {
 		Specifiers Specify[] = {
-		{"%c", characters}, {"%%", percent}, {"%s", string}, {"%d", case_d},
-		{"%i", case_i}, {"%b", binary}, {"%u", case_u}, {"%o", base_eight}, {"%x", hexalower},
-		{"%X", hexaupper},
+		{"%c", characters}, {"%%", percent}, {"%s", string},
+		{"%d", case_d}, {"%i", case_i}, {"%b", binary}, {"%u", case_u},
+		{"%0", base_eight}, {"%x", hexalower}, {"%X", hexaupper},
 		};
 	va_list p;
 	int chars, specifierFound = 0;
