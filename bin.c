@@ -25,7 +25,7 @@ int binary(va_list arg)
 		temp /= 2;
 		numberofbits++;
 	}
-	arr = malloc(numberofbits * sizeof(int));
+	arr = malloc((numberofbits + 1) * sizeof(int));
 	if (arr == NULL)
 	{
 		return (-1);
