@@ -17,6 +17,11 @@ int string(va_list p)
 		write(1, "(null)", 6);
 		return (6);
 	}
+	else if (s[0] == '%')
+	{
+	_putchar('%');
+	return (1);
+	}
 	else
 	{
 	len = 0;
