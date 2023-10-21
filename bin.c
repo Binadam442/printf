@@ -33,6 +33,7 @@ int binary(va_list arg)
 	}
 	else
 	{
+		temp = b;
 		while (b)
 		{
 			arr[a] = (b % 2);
