@@ -6,9 +6,9 @@
  */
 int characters(va_list p)
 {
-	char chr;
+	char c;
 
-	chr = va_arg(p, int);
-	_putchar(chr);
+	c = va_arg(p, int);
+	_putchar(c);
 	return (1);
 }
