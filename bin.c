@@ -1,46 +1,33 @@
 #include "main.h"
-
 /**
- *binary - Converts an unsigned int to binary
- *@arg: Number to be converted to binary and printed.
- *Return: Number of bits printed.
+ * binary - prints a binary number.
+ * @val: arguments.
+ * Return: Number of characters printed.
  */
-
-
-int binary(va_list arg)
+int binary(va_list val)
 {
-	int *arr, a, count;
-	unsigned int num = va_arg(arg, unsigned int);
-	int temp = num;
-	int numberofbits = 0;
+	unsigned int num = va_arg(val, unsigned int);
+	int flag = 0;
+	int i;
+	int cont = 0;
+	int bit;
 
-	if (num == 0)
+	for (i = 31; i >= 0; i--)
+	{
+		bit = (num >> i) & 1;
+		if (bit || flag)
+		{
+			_putchar(bit + '0');
+			cont++;
+			flag = 1;
+		}
+	}
+
+	if (cont == 0)
 	{
 		_putchar('0');
-		return (1);
+		cont = 1;
 	}
 
-	while (temp > 0)
-	{
-		temp /= 2;
-		numberofbits++;
-	}
-	arr = malloc((numberofbits + 1) * sizeof(int));
-	if (arr == NULL)
-	{
-		return (-1);
-	}
-	for (a = 0; num > 0; a++)
-	{
-		arr[a] = num % 2;
-		num /= 2;
-	}
-	count = 0;
-	for (a = numberofbits - 1; a >= 0; a--)
-	{
-		_putchar(arr[a] + '0');
-		count++;
-	}
-	free(arr);
-	return (count);
+	return (cont);
 }
