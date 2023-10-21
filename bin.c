@@ -9,44 +9,38 @@
 
 int binary(va_list arg)
 {
-	unsigned int b = va_arg(arg, unsigned int);
-	int num = 0, a = 0;
-	unsigned int *arr;
+	int *arr, a, count;
+	unsigned int num = va_arg(arg, unsigned int);
+	int temp = num;
 	int numberofbits = 0;
-	unsigned int temp = b;
+
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 
 	while (temp > 0)
 	{
 		temp /= 2;
 		numberofbits++;
 	}
-	arr = malloc(numberofbits * sizeof(unsigned int));
+	arr = malloc(numberofbits * sizeof(int));
 	if (arr == NULL)
 	{
 		return (-1);
 	}
-	if (b == 0)
+	for (a = 0; num > 0; a++)
 	{
-		_putchar('0');
-		num++;
+		arr[a] = num % 2;
+		num /= 2;
 	}
-	else
+	count = 0;
+	for (a = numberofbits - 1; a >= 0; a--)
 	{
-		temp = b;
-		while (b)
-		{
-			arr[a] = (b % 2);
-			b /= 2;
-			a++;
-		}
-		a--;
-		while (a >= 0)
-		{
-			_putchar(arr[a] + '0');
-			a--;
-			num++;
-		}
+		_putchar(arr[a] + '0');
+		count++;
 	}
 	free(arr);
-	return (num);
+	return (count);
 }

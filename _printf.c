@@ -9,6 +9,7 @@ int _printf(const char *format, ...)
 {
 		Specifiers Specify[] = {
 		{"%c", characters}, {"%%", percent}, {"%s", string},
+		{"%b", binary},
 		};
 	va_list p;
 	int chars, specifierFound = 0;
