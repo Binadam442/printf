@@ -10,9 +10,8 @@
 int binary(va_list arg)
 {
 	unsigned int b = va_arg(arg, unsigned int);
-	int num = 0;
+	int num = 0, a = 0;
 	unsigned int *arr;
-	int a = 0;
 	int numberofbits = 0;
 	unsigned int temp = b;
 
